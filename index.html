@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100%;
+            width: 100%;
+        }
+        .calculator{
+            height: 500px;
+            width: 350px;
+            border: 2px solid black;
+            margin: auto;
+            position: relative;
+            top: 50px;
+            padding: 15px;
+        }
+        .result{
+            height: 10%;
+            width: 100%;
+            border: 1px solid black;
+
+        }
+        .display{
+            height: 100%;
+            width: 100%;
+            /*
+            border: 2px solid red;
+            */
+            font-size: 24px;
+        }
+        .symbol{
+            height: 85%;
+            width: 100%;
+            /*
+            border: 2px solid red;
+            */
+            margin-top: 10px;
+        }
+        .input{
+            height: 100%;
+            width: 100%;
+        }
+        button{
+            height: 90%;
+            width: 90%;
+            margin: 5px;
+            font-size: 25px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="result">
+            <input type="text" class="display">
+        </div>
+        <div class="symbol">
+            <table class="input">
+                <tr>
+                    <td><button onclick="cleardisplay()"><a href="#">C</a></button></td>
+                    <td><button onclick="display('/')"><a href="#">/</a></button></td>
+                    <td><button onclick="display('*')"><a href="#">*</a></button></td>
+                    <td><button onclick="display('-')"><a href="#">-</a></button></td>
+                </tr>
+                <tr>
+                    <td><button><a href="#" onclick="display('7')">7</a></button></td>
+                    <td><button><a href="#" onclick="display('8')">8</a></button></td>
+                    <td><button><a href="#" onclick="display('9')">9</a></button></td>
+                    <td rowspan="2"><button onclick="display('+')"><a href="#">+</a></button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="display('4')"><a href="#">4</a></button></td>
+                    <td><button onclick="display('5')"><a href="#">5</a></button></td>
+                    <td><button onclick="display('6')"><a href="#">6</a></button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="display('1')"><a href="#">1</a></button></td>
+                    <td><button onclick="display('2')"><a href="#">2</a></button></td>
+                    <td><button onclick="display('3')"><a href="#">3</a></button></td>
+                    <td rowspan="2" onclick="result()"><button><a href="#">=</a></button></td>
+                </tr>
+                <tr>
+                    <td colspan=2><button onclick="display('0')"><a href="#">0</a></button></td>
+                    <td><button onclick="display('.')"><a href="#">.</a></button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        var string='';
+        function display(value){
+            string=string+value;
+            document.getElementsByClassName('display')[0].value=string;
+        }
+        function cleardisplay(){
+            string='';
+            document.getElementsByClassName('display')[0].value=string;
+        }
+        function result(){
+            var finalresult=eval(string);
+            document.getElementsByClassName('display')[0].value=finalresult;
+        }
+    </script>
+</body>
+</html>
